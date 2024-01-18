@@ -1,39 +1,29 @@
- function openpop() {
-     var pop = document.getElementById("popup");
+
+//if register success
+function openpop() {
+     let pop = document.getElementById("popup");
 
      pop.classList.add("popup-open");
  }
 
+ //not used gmail email
  function openpop2() {
-     var pop = document.getElementById("popup2");
+     let pop = document.getElementById("popup2");
 
      pop.classList.add("popup-open2");
  }
 
+
+ //if passwords in register not matching 
  function openpop4() {
-     var pop = document.getElementById("popup4");
+     let pop = document.getElementById("popup4");
 
      pop.classList.add("popup-open2");
  }
 
- function openpop3() {
-     var pop = document.getElementById("popup3");
 
-     pop.classList.add("popup-open3");
- }
-
- function closepop() {
-     var pop = document.getElementById("popup");
-
-     pop.classList.remove("popup-open");
- }
-
- function closepop4() {
-     var pop = document.getElementById("popup4");
-
-     pop.classList.remove("popup-open2");
- }
-
+ 
+ 
 
 
 
@@ -41,14 +31,14 @@
 
 
  function registerUser() {
-     var email = document.getElementById('email').value;
-     var password = document.getElementById('password').value;
-     var Password2 = document.getElementById('confirmPassword').value;
-     var phone = document.getElementById('phone').value;
+     let email = document.getElementById('email').value;
+     let password = document.getElementById('password').value;
+     let Password2 = document.getElementById('confirmPassword').value;
+     let phone = document.getElementById('phone').value;
 
 
 
-     var gender;
+     let gender;
      if (document.getElementById("male").checked) {
          gender = document.getElementById("male").value;
      } else {
@@ -61,12 +51,12 @@
          openpop4();
          return;
      }
-     if (email.indexOf('@gmail') === -1) {
+     if (email.indexOf('@gmail') == -1) {
          openpop2();
          return;
 
      } else {
-         var userData = {
+         let userData = {
              email: email,
              password: password,
              confirmPassword: Password2,
@@ -75,7 +65,7 @@
          };
 
          // Convert the JavaScript object to JSON
-         var jsonData = JSON.stringify(userData);
+         let jsonData = JSON.stringify(userData);
          localStorage.setItem('userData', jsonData);
          openpop();
 
@@ -92,21 +82,21 @@
  function loginUser() {
 
 
-     var storedData = localStorage.getItem('userData');
+     let storedData = localStorage.getItem('userData');
      if (storedData) {
-         var userData = JSON.parse(storedData);
+         let userData = JSON.parse(storedData);
 
-         var email = document.getElementById('email').value;
-         var password = document.getElementById('password').value;
+         let email = document.getElementById('email').value;
+         let password = document.getElementById('password').value;
          if (email === userData.email && password === userData.password) {
 
              localStorage.setItem('loggedInUser', JSON.stringify(userData));
 
-             var pop = document.getElementById("popup");
+             let pop = document.getElementById("popup");
 
              pop.classList.add("popup-open");
          } else {
-             var pop = document.getElementById("popup5");
+             let pop = document.getElementById("popup5");
 
              pop.classList.add("popup-open");
          }
@@ -131,12 +121,12 @@
 
 
  function closePopup() {
-     var popup = document.getElementById('popup3');
+     let popup = document.getElementById('popup3');
      popup.style.display = 'none';
  }
 
  function closePopup() {
-     var popup = document.getElementById('popup2');
+     let popup = document.getElementById('popup2');
      popup.style.display = 'none';
 
 
@@ -146,14 +136,6 @@
      popup = document.getElementById('popup5');
      popup.style.display = 'none';
  }
-
-
-
-
-
-
-
-
 
 
  function movetohome() {
