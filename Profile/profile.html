@@ -34,11 +34,10 @@
             <div class="profile-image">
                 <img src="./imgs/Omen.png" alt=" Profile Picture">
             </div>
-            <div class="profile-details">
-                <h2>Username</h2>
-                <p id="mail">Useremail : </p>
-                <p id="mobile">Mobile : </p>
-                <p id="gender">Gender : </p>
+            <div class="profile-details" style="margin-top: 25px; margin-left: 20px;">
+                <p id="mail">User_email : </p>
+                <p id="mobile">User_Mobile : </p>
+                <p id="gender">User_Gender : </p>
             </div>
         </div>
     </header>
@@ -46,12 +45,17 @@
 
 
     <script>
-        var userEmail = localStorage.getItem("email");
-        var usermobile = localStorage.getItem("phone");
-        var usergender = localStorage.getItem("gender");
-        document.getElementById("mail").innerHTML += " " + userEmail;
-        document.getElementById("mobile").innerHTML += " " + usermobile;
-        document.getElementById("gender").innerHTML += " " + usergender;
+        var loggedInUserData = localStorage.getItem('loggedInUser');
+        if (loggedInUserData) {
+            var userData = JSON.parse(loggedInUserData);
+
+
+            document.getElementById("mail").innerHTML += " " + userData.email;
+            document.getElementById("mobile").innerHTML += " " + userData.phone;
+            document.getElementById("gender").innerHTML += " " + userData.gender
+        } else {
+            alert('No user logged in.');
+        }
     </script>
 
 </body>
